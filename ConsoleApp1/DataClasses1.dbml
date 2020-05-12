@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="neptuno" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-FLGG07H;Initial Catalog=neptuno;Integrated Security=True" SettingsObjectName="ConsoleApp1.Properties.Settings" SettingsPropertyName="neptunoConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.clientes" Member="clientes">
+    <Type Name="clientes">
+      <Column Name="idCliente" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NombreCompañia" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NombreContacto" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CargoContacto" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Ciudad" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CodPostal" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Pais" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="clientes_Pedidos" Member="Pedidos" ThisKey="idCliente" OtherKey="IdCliente" Type="Pedidos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pedidos" Member="Pedidos">
+    <Type Name="Pedidos">
+      <Column Name="IdPedido" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdCliente" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="IdEmpleado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaPedido" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaEntrega" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaEnvio" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FormaEnvio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cargo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Destinatario" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="DireccionDestinatario" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="CiudadDestinatario" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="RegionDestinatario" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="CodPostalDestinatario" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="PaisDestinatario" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Association Name="clientes_Pedidos" Member="clientes" ThisKey="IdCliente" OtherKey="idCliente" Type="clientes" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
